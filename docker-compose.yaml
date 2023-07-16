@@ -1,0 +1,19 @@
+version: "3.8"
+
+services:
+  cuda:
+    image: saltyvanilla/cuda:11.3.0-cudnn8-devel-ubuntu20.04-py39-pdm
+    volumes:
+      - $HOME:$HOME
+    env_file:
+      - .env
+    hostname: ubuntu
+    restart: always
+    tty: true
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]

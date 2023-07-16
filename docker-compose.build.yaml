@@ -1,0 +1,15 @@
+version: "3.8"
+
+services:
+  cuda:
+    build:
+      context: ./dist/${CUDA_VERSION}/ubuntu${UBUNTU_VERSION}/
+      dockerfile: Dockerfile
+      target: dev
+      args:
+        - CUDA_TAG=$CUDA_TAG
+        - PYTHON_VERSION=$PYTHON_VERSION
+    image: $IMAGE
+    env_file:
+      - .env
+    hostname: ubuntu
