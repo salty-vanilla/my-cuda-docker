@@ -34,7 +34,9 @@ RUN echo source /usr/share/bash-completion/bash_completion >> /etc/bash.bashrc
 
 WORKDIR /tmp
 RUN curl -O http://nz2.archive.ubuntu.com/ubuntu/pool/main/o/openssl/libssl1.1_1.1.1f-1ubuntu2.19_amd64.deb && \
-    dpkg -i libssl1.1_1.1.1f-1ubuntu2.19_amd64.deb
+    dpkg -i libssl1.1_1.1.1f-1ubuntu2.19_amd64.deb && \
+    curl -O http://archive.ubuntu.com/ubuntu/pool/universe/libf/libffi7/libffi7_3.3-5ubuntu1_amd64.deb && \
+    dpkg -i libffi7_3.3-5ubuntu1_amd64.deb
 WORKDIR /
 
 ENV POETRY_HOME=/opt/poetry
