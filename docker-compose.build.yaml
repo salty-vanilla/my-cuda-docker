@@ -13,3 +13,8 @@ services:
     env_file:
       - .env
     hostname: ubuntu
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - capabilities: [gpu]
