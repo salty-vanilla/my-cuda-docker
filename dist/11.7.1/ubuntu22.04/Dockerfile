@@ -51,5 +51,7 @@ RUN mkdir -m 777 /resources && \
     mkdir -m 777 /resources/models && \
     mkdir -m 777 /resources/reports
 
+RUN echo POETRY_VIRTUALENVS_IN_PROJECT=true >> /etc/environment
+
 RUN rm -rf /tmp/*
 EXPOSE 6006 8080 8888
